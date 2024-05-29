@@ -9,6 +9,8 @@ import {
   APPS_PATH,
   APP_BUILD_NAME,
   IApp,
+  IRawSubject,
+  ITopic,
 } from '../shared/index.js';
 
 /* ************************************************************************************************
@@ -31,6 +33,23 @@ const __buildLogoPath = (appName: string, logoVariation: ILogoVariation): string
 const __buildRawAppPath = (name: string) => `../apps/${name}/index.js`;
 
 /**
+ * Builds the path for a raw subject.
+ * @param appName
+ * @param subjectName
+ * @returns string
+ */
+const __buildRawSubjectPath = (appName: string, subjectName: string) => `../apps/${appName}/${subjectName}/index.js`;
+
+/**
+ * Builds the path for a given topic.
+ * @param appName
+ * @param subjectName
+ * @param topicName
+ * @returns string
+ */
+const __buildTopicPath = (appName: string, subjectName: string, topicName: string) => `../apps/${appName}/${subjectName}/topics/${topicName}.js`;
+
+/**
  * Builds the path for a built app.
  * @param name
  * @returns string
@@ -46,14 +65,21 @@ const buildAppPath = (name: string) => `${APPS_PATH}/${name}/${APP_BUILD_NAME}`;
  ************************************************************************************************ */
 
 /**
+ * Loads a ES6 module located at a given path and returns its contents.
+ * @param path
+ * @returns Promise<any>
+ */
+const __loadModule = async (path: string): Promise<any> => {
+  const module = await import(path);
+  return module.default();
+};
+
+/**
  * Retrieves a raw app module and extracts its values.
  * @param name
  * @returns Promise<IRawApp>
  */
-const __loadRawApp = async (name: string): Promise<IRawApp> => {
-  const module = await import(__buildRawAppPath(name));
-  return module.default();
-};
+const __loadRawApp = (name: string): Promise<IRawApp> => __loadModule(__buildRawAppPath(name));
 
 /**
  * Verifies if a logo variation exists for a given app.
@@ -104,6 +130,36 @@ const getApp = (name: string): IApp => <IApp>readJSONFile(buildAppPath(name));
 
 
 /* ************************************************************************************************
+ *                                        BUILD RETRIEVERS                                        *
+ ************************************************************************************************ */
+
+/**
+ * Loads a raw subject module and retrieves its contents.
+ * @param appName
+ * @param subjectName
+ * @returns Promise<IRawSubject>
+ */
+const loadRawSubject = (
+  appName: string,
+  subjectName: string,
+): Promise<IRawSubject> => __loadModule(__buildRawSubjectPath(appName, subjectName));
+
+/**
+ * Loads a topic module and retrieves its contents.
+ * @param appName
+ * @param subjectName
+ * @param topicName
+ * @returns Promise<ITopic>
+ */
+const loadTopic = (
+  appName: string,
+  subjectName: string,
+  topicName: string,
+): Promise<ITopic> => __loadModule(__buildTopicPath(appName, subjectName, topicName));
+
+
+
+/* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
 export {
@@ -116,4 +172,8 @@ export {
   // retrievers
   listRawApps,
   getApp,
+
+  // build retrievers
+  loadRawSubject,
+  loadTopic,
 };

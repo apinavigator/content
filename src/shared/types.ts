@@ -5,12 +5,21 @@
 
 /**
  * Raw App
- * The object of an app prior to build execution.
+ * The object of an app prior to the build execution.
  */
 interface IRawApp {
   name: string;
   version: string;
   subjects: string[];
+}
+
+/**
+ * Raw Subject
+ * The object of a subject prior to the build execution.
+ */
+interface IRawSubject {
+  name: string;
+  topics: string[];
 }
 
 /**
@@ -40,10 +49,10 @@ type ITopicContentItemKind = 'text' | 'javascript' | 'typescript' | 'html' | 'cs
  */
 interface ITopicContentItem {
   // the kind of content
-  kind: ITopicContentItemKind,
+  kind: ITopicContentItemKind;
 
   // the content
-  value: string
+  value: string;
 }
 
 /**
@@ -64,10 +73,10 @@ interface ITopic {
   experimental?: boolean;
 
   // the list of content items
-  content: ITopicContentItem[],
+  content: ITopicContentItem[];
 
   // the list of URLs that contain information about the topic
-  sources: string[]
+  sources: string[];
 }
 
 /**
@@ -76,10 +85,10 @@ interface ITopic {
  */
 interface ISubject {
   // the name of the category being covered
-  name: string,
+  name: string;
 
   // the list of topics that comprise the subject
-  topics: ITopic[]
+  topics: ITopic[];
 }
 
 /**
@@ -88,13 +97,13 @@ interface ISubject {
  */
 interface IApp {
   // the name of the app
-  name: string,
+  name: string;
 
   // the current version of the app
-  version: string,
+  version: string;
 
   // the list of subjects that comprise the app
-  subjects: ISubject[]
+  subjects: ISubject[];
 }
 
 
@@ -106,6 +115,7 @@ interface IApp {
 export type {
   // pre-build
   IRawApp,
+  IRawSubject,
   ILogoVariation,
 
   // build

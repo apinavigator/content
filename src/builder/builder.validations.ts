@@ -36,11 +36,24 @@ const __isBuildingDifferentVersion = (raw: IRawApp): void => {
 };
 
 /**
+ * Checks if the raw app has a valid list of subjects to build.
+ * @param subjects
+ * @throws
+ * - APP_HAS_NO_SUBJECTS: if the app has no subjects
+ */
+const __canSubjectsBeBuilt = (subjects: string[]): void => {
+  if (!Array.isArray(subjects) || !subjects.length) {
+    throw new Error(encodeError('The raw app object does not contain a list of valid subjects.', ERRORS.APP_HAS_NO_SUBJECTS));
+  }
+};
+
+/**
  * Checks if an app meets all the requirements to be built.
  * @param raw
  * @throws
  * - APP_IS_MISSING_LOGO: if either of the logos is missing
  * - OVERRIDING_SAME_APP_VERSION: if the version set in the raw app has already been built
+ * - APP_HAS_NO_SUBJECTS: if the app has no subjects
  */
 const canAppBeBuilt = (raw: IRawApp): void => {
   // ensure both logos exist
@@ -48,6 +61,9 @@ const canAppBeBuilt = (raw: IRawApp): void => {
 
   // ensure it isn't building the same version
   __isBuildingDifferentVersion(raw);
+
+  // ensure the subjects are valid
+  __canSubjectsBeBuilt(raw.subjects);
 };
 
 
