@@ -1,6 +1,6 @@
 import { select } from '@inquirer/prompts';
-import { IRawApp } from './shared/index.js';
-import { listRawApps, build } from './builder/index.js';
+import { IRawApp } from './modules/shared/index.js';
+import { getRawApps, build } from './modules/build/index.js';
 
 /* ************************************************************************************************
  *                                           EXECUTION                                            *
@@ -8,7 +8,7 @@ import { listRawApps, build } from './builder/index.js';
 (async () => {
   try {
     // retrieve the raw apps
-    const rawApps = await listRawApps();
+    const rawApps = await getRawApps();
 
     // prompt the select input
     console.log('API NAVIGATOR\n');

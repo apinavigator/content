@@ -1,7 +1,8 @@
-import { IRawApp } from '../../shared/types.js';
+import { IRawApp } from '../../modules/shared/types.js';
 
 const App = (): IRawApp => ({
-  name: 'javascript',
+  id: 'javascript',
+  name: 'JavaScript',
   version: '1.0.0',
   subjects: [
     'fundamentals',
