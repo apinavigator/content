@@ -8,6 +8,7 @@
  * The object of an app prior to the build execution.
  */
 interface IRawApp {
+  id: string;
   name: string;
   version: string;
   subjects: string[]; // Subject IDs - only present in raw objects
