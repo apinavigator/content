@@ -1,4 +1,5 @@
 import { IRawApp } from '../shared/index.js';
+import { canAppBeBuilt } from './builder.validations.js';
 
 /* ************************************************************************************************
  *                                           CONSTANTS                                            *
@@ -13,8 +14,9 @@ import { IRawApp } from '../shared/index.js';
 
 const build = async (rawApp: IRawApp): Promise<void> => {
   // ensure the app can be built
-  // @TODO
+  canAppBeBuilt(rawApp);
 
+  // ...
   console.log(rawApp);
 };
 

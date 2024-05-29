@@ -13,6 +13,12 @@ interface IRawApp {
   subjects: string[];
 }
 
+/**
+ * Logo Variation
+ * Each app should have two logos so the GUI can properly implement light and dark mode.
+ */
+type ILogoVariation = 'light' | 'dark';
+
 
 
 
@@ -100,6 +106,7 @@ interface IApp {
 export type {
   // pre-build
   IRawApp,
+  ILogoVariation,
 
   // build
   ITopicContentItemKind,
