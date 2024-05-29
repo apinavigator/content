@@ -1,7 +1,24 @@
 
+/* ************************************************************************************************
+ *                                           PRE-BUILD                                            *
+ ************************************************************************************************ */
+
+/**
+ * Raw App
+ * The object of an app prior to build execution.
+ */
+interface IRawApp {
+  name: string;
+  version: string;
+  subjects: string[];
+}
+
+
+
+
 
 /* ************************************************************************************************
- *                                             TYPES                                              *
+ *                                             BUILD                                              *
  ************************************************************************************************ */
 
 /**
@@ -52,7 +69,10 @@ interface ITopic {
  * A container for topics.
  */
 interface ISubject {
+  // the name of the category being covered
   name: string,
+
+  // the list of topics that comprise the subject
   topics: ITopic[]
 }
 
@@ -61,8 +81,13 @@ interface ISubject {
  * An application refers to an individual technology, library, framework or programming language.
  */
 interface IApp {
+  // the name of the app
   name: string,
+
+  // the current version of the app
   version: string,
+
+  // the list of subjects that comprise the app
   subjects: ISubject[]
 }
 
@@ -73,6 +98,10 @@ interface IApp {
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
 export type {
+  // pre-build
+  IRawApp,
+
+  // build
   ITopicContentItemKind,
   ITopicContentItem,
   ITopic,

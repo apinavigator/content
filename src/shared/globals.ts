@@ -1,13 +1,14 @@
 
 
 /* ************************************************************************************************
- *                                             ERRORS                                             *
+ *                                            GLOBALS                                             *
  ************************************************************************************************ */
-enum ERRORS {
-  NO_APPS_WERE_FOUND = 'NO_APPS_WERE_FOUND',
-}
 
+// the path to the directory that holds the raw apps
+const RAW_APPS_PATH: string = 'dist/apps';
 
+// the path to where the content should be placed
+const OUTPUT_PATH: string = 'public';
 
 
 
@@ -15,5 +16,6 @@ enum ERRORS {
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
 export {
-  ERRORS,
+  RAW_APPS_PATH,
+  OUTPUT_PATH,
 };

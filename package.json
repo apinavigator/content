@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "start": "tsc --project tsconfig.build.json",
+    "start": "rm -r -f dist && tsc --project tsconfig.build.json && node dist/index.js",
     "test": "echo \"Error: tests are executed with  npm run test:(integration|unit)\" && exit 1",
     "test:integration": "vitest run --config vitest.test-integration.config.ts",
     "test:unit": "vitest run --config vitest.test-unit.config.ts"
@@ -28,6 +30,8 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
+    "@inquirer/prompts": "^5.0.4",
+    "error-message-utils": "^1.0.2",
     "fs-utils-sync": "^1.0.1"
   }
 }
