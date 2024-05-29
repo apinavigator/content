@@ -10,7 +10,7 @@
 interface IRawApp {
   name: string;
   version: string;
-  subjects: string[];
+  subjects: string[]; // Subject IDs - only present in raw objects
 }
 
 /**
@@ -19,7 +19,7 @@ interface IRawApp {
  */
 interface IRawSubject {
   name: string;
-  topics: string[];
+  topics: string[]; // Topic IDs - only present in raw objects
 }
 
 /**
