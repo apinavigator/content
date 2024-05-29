@@ -37,11 +37,17 @@ type ILogoVariation = 'light' | 'dark';
  ************************************************************************************************ */
 
 /**
+ * Programming Languages
+ * The list of programming languages that can be inserted into the content as code snippets.
+ */
+type IProgrammingLanguages = 'javascript' | 'typescript' | 'html' | 'css';
+
+/**
  * Topic Content Item Kind
  * The kind of content provided by the item. In the case of 'text', the content will be wrapped in
  * a <p>{item.value}</p>. If it is a code snippet, make use of the programming language's name.
  */
-type ITopicContentItemKind = 'text' | 'javascript' | 'typescript' | 'html' | 'css';
+type ITopicContentItemKind = 'text' | IProgrammingLanguages;
 
 /**
  * Topic Content Item
@@ -96,6 +102,9 @@ interface ISubject {
  * An application refers to an individual technology, library, framework or programming language.
  */
 interface IApp {
+  // the identifier of the app. Ensure this value is POSIX compatible and lowercased
+  id: string,
+
   // the name of the app
   name: string;
 
@@ -105,6 +114,34 @@ interface IApp {
   // the list of subjects that comprise the app
   subjects: ISubject[];
 }
+
+
+
+
+
+/* ************************************************************************************************
+ *                                           APP STORE                                            *
+ ************************************************************************************************ */
+
+/**
+ * Minified App
+ * The minified version of the app that is stored in the App Store object.
+ */
+interface IMinifiedApp {
+  id: string;
+  name: string;
+  version: string;
+}
+
+/**
+ * App Store
+ * The store's object that contains general information as well as the available apps.
+ */
+interface IAppStore {
+  // the list of applications that can be installed through the GUI
+  apps: IMinifiedApp[];
+}
+
 
 
 
@@ -124,4 +161,8 @@ export type {
   ITopic,
   ISubject,
   IApp,
+
+  // app store
+  IMinifiedApp,
+  IAppStore,
 };
