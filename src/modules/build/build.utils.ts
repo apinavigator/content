@@ -1,15 +1,22 @@
 import { encodeError } from 'error-message-utils';
-import { getDirectoryElements, isFile, readJSONFile } from 'fs-utils-sync';
+import {
+  getDirectoryElements,
+  isFile,
+  readJSONFile,
+  writeJSONFile,
+} from 'fs-utils-sync';
 import {
   ERRORS,
   IApp,
   ILogoVariation,
   IRawApp,
 } from '../shared/index.js';
-import { RAW_APPS_DIR_PATH, buildAppFilePath, buildLogoFilePath } from '../path/index.js';
+import {
+  RAW_APPS_DIR_PATH,
+  buildAppFilePath,
+  buildLogoFilePath,
+} from '../path/index.js';
 import { loadRawAppModule } from '../module-loader/index.js';
-
-
 
 /* ************************************************************************************************
  *                                         MISC HELPERS                                           *
@@ -64,6 +71,20 @@ const getApp = (appID: string): IApp => <IApp>readJSONFile(buildAppFilePath(appI
 
 
 /* ************************************************************************************************
+ *                                            ACTIONS                                             *
+ ************************************************************************************************ */
+
+/**
+ * Saves a given app into the output directory.
+ * @param app
+ */
+const saveApp = (app: IApp): void => writeJSONFile(buildAppFilePath(app.id), app, 0);
+
+
+
+
+
+/* ************************************************************************************************
  *                                         MODULE EXPORTS                                         *
  ************************************************************************************************ */
 export {
@@ -73,4 +94,7 @@ export {
   // retrievers
   getRawApps,
   getApp,
+
+  // actions
+  saveApp,
 };

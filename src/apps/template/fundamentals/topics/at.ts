@@ -10,30 +10,30 @@ const Topic = (): ITopic => ({
 
     javascript(`typeof 'Hello' // 'string'
 
-    typeof 128 // 'number'
-    typeof NaN // 'number'
+typeof 128 // 'number'
+typeof NaN // 'number'
 
-    typeof true // 'boolean'
+typeof true // 'boolean'
 
-    typeof null // 'object'
+typeof null // 'object'
 
-    typeof undefined // 'undefined'
+typeof undefined // 'undefined'
 
-    typeof { foo: 'bar' } // 'object'
-    typeof [0, 1, 2] // 'object'
+typeof { foo: 'bar' } // 'object'
+typeof [0, 1, 2] // 'object'
 
-    typeof 1n // 'bigint'
+typeof 1n // 'bigint'
 
-    typeof Symbol('test') // 'symbol'
+typeof Symbol('test') // 'symbol'
 
-    const myFunc = () => { console.log('Hey!') }
-    typeof myFunc // 'function'`),
+const myFunc = () => { console.log('Hey!') }
+typeof myFunc // 'function'`),
 
     text('This is the topic\'s description.'),
 
     javascript(`let foo = 42; // foo is now a number
-    foo = "bar"; // foo is now a string
-    foo = true; // foo is now a boolean`),
+foo = "bar"; // foo is now a string
+foo = true; // foo is now a boolean`),
 
     text('Another super cool description of the topic!'),
   ],

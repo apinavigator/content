@@ -1,8 +1,8 @@
 import { IRawApp } from '../../modules/shared/types.js';
 
 const App = (): IRawApp => ({
-  id: 'typescript',
-  name: 'TypeScript',
+  id: 'template',
+  name: 'Template',
   version: '1.0.0',
   subjects: [
     'fundamentals',

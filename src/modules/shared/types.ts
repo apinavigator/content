@@ -135,6 +135,9 @@ interface IMinifiedApp {
   id: string;
   name: string;
   version: string;
+
+  // the size of the app in bytes
+  size: number;
 }
 
 /**

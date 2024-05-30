@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "start": "rm -r -f dist && tsc --project tsconfig.build.json && node dist/index.js",
+    "start": "rm -r -f dist && tsc --project tsconfig.build.json && node dist/index.js && rm -r dist",
     "test": "echo \"Error: tests are executed with  npm run test:(integration|unit)\" && exit 1",
     "test:integration": "vitest run --config vitest.test-integration.config.ts",
     "test:unit": "vitest run --config vitest.test-unit.config.ts"
