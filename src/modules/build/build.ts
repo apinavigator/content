@@ -37,7 +37,6 @@ const __buildApp = async (rawApp: IRawApp): Promise<IApp> => ({
   )),
 });
 
-
 /**
  * Runs the build process for a selected app.
  * @param rawApp
@@ -54,6 +53,7 @@ const build = async (rawApp: IRawApp): Promise<void> => {
   // update or generate the app store file
   // @TODO
 };
+
 
 
 

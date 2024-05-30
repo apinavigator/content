@@ -1,10 +1,9 @@
 import { IRawSubject } from '../../../modules/shared/types.js';
 
 const Subject = (): IRawSubject => ({
-  name: 'Fundamentals',
+  name: 'HTTP',
   topics: [
-    'data-types-and-structures',
-    'at',
+    'request',
   ],
 });
 

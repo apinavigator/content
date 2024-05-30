@@ -3,7 +3,6 @@ import { text } from '../../../../modules/topic-content/index.js';
 
 const Topic = (): ITopic => ({
   name: 'Data Types & Structures',
-  description: 'This is a very cool description',
   content: [
     text('This is the topic\'s description.'),
   ],

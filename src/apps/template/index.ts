@@ -5,7 +5,14 @@ const App = (): IRawApp => ({
   name: 'Template',
   version: '1.0.0',
   subjects: [
-    'fundamentals',
+    'javascript',
+    'vitest',
+    'css',
+    'tailwindcss',
+    'http',
+    'typescript',
+    'postgresql',
+    'linux',
   ],
 });
 

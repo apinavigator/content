@@ -4,7 +4,6 @@ import { javascript, text } from '../../../../modules/topic-content/index.js';
 const Topic = (): ITopic => ({
   name: 'at',
   longName: 'at(index)',
-  description: 'Some super cool description of the topic :)',
   content: [
     text('This is the topic\'s description.'),
 

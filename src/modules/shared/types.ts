@@ -76,9 +76,6 @@ interface ITopic {
   // an optional larger name that will be displayed in the hover card and the subject dialog
   longName?: string;
 
-  // the description that will be used by the search engine
-  description: string;
-
   // if enabled, the topic has not yet been released to be used in production
   experimental?: boolean;
 
