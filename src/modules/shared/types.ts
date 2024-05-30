@@ -41,14 +41,17 @@ type ILogoVariation = 'light' | 'dark';
  * Programming Languages
  * The list of programming languages that can be inserted into the content as code snippets.
  */
-type IProgrammingLanguages = 'javascript' | 'typescript' | 'html' | 'css';
+type IProgrammingLanguage = 'bash' | 'cmake' | 'csharp' | 'css' | 'dart' | 'django' | 'dockerfile'
+| 'go' | 'haskell' | 'html' | 'http' | 'java' | 'javascript' | 'json' | 'latex' | 'makefile'
+| 'markdown' | 'nginx' | 'perl' | 'pgsql' | 'php' | 'plaintext' | 'powershell' | 'python' | 'ruby'
+| 'rust' | 'scss' | 'shell' | 'sql' | 'typescript' | 'xml' | 'yaml';
 
 /**
  * Topic Content Item Kind
  * The kind of content provided by the item. In the case of 'text', the content will be wrapped in
  * a <p>{item.value}</p>. If it is a code snippet, make use of the programming language's name.
  */
-type ITopicContentItemKind = 'text' | IProgrammingLanguages;
+type ITopicContentItemKind = 'text' | IProgrammingLanguage;
 
 /**
  * Topic Content Item
@@ -157,6 +160,7 @@ export type {
   ILogoVariation,
 
   // build
+  IProgrammingLanguage,
   ITopicContentItemKind,
   ITopicContentItem,
   ITopic,
